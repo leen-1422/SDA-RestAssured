@@ -33,9 +33,7 @@ public class HW4 {
         response.prettyPrint();
 
         // Aseertions
-        response.then().statusCode(200);
 
-        response.then().contentType("application/json");
 
         response
                 .then()

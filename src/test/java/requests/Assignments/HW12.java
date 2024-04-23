@@ -1,12 +1,15 @@
 package requests.Assignments;
 
 import base_urls.PetStoreBaseUrl;
+import io.restassured.RestAssured;
+import io.restassured.parsing.Parser;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import pojos.*;
 
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class HW12 extends PetStoreBaseUrl {
     //Write an automation test that will create, read, update, delete a 'pet' using the "https://petstore.swagger.io/" document
@@ -105,6 +108,32 @@ public class HW12 extends PetStoreBaseUrl {
         assertEquals(actualData.getName(), expectedData.getName());
         assertEquals(actualData.getPhotoUrls(), expectedData.getPhotoUrls());
         assertEquals(actualData.getStatus(), expectedData.getStatus());
+
+    }
+
+    // DELETE --> https://petstore.swagger.io/v2/pet/{pet id}
+    @Test
+    public void deleteRequestPojoTest() {
+        //Set the url
+        spec.pathParams("first", "v2", "second","pet", "third", "1");
+
+        // Set the expected data
+//        PetCategory petCategory = new PetCategory(null, null);
+//        String[] photoUrlsArray = {null};
+//        PetTags[] petTagsArray = {new PetTags(null, null)};
+        PetStore expectedData = new PetStore();
+        System.out.println("expectedData = " + expectedData);
+
+        //Send the request and get the response
+        Response response = given(spec).delete("{first}/{second}/{third}");
+        response.prettyPrint();
+
+        //Do assertion
+        PetStore actualData = response.as(PetStore.class);
+        System.out.println("actualData = " + actualData);
+
+        assertEquals(response.statusCode(),200);
+
 
     }
 

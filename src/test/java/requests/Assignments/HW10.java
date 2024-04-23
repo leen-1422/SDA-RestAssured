@@ -1,6 +1,6 @@
 package requests.Assignments;
 
-import base_urls.CreateUserBaseUrl;
+import base_urls.PetStoreBaseUrl;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
 
-public class HW10 extends CreateUserBaseUrl {
+public class HW10 extends PetStoreBaseUrl {
     //Using the https://petstore.swagger.io/ document,
     // write an automation test that finds the number of "pets" with the status "available"
     // https://petstore.swagger.io/v2/pet/findByStatus?status=available

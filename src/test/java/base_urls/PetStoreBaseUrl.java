@@ -5,7 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeMethod;
 
-public class CreateUserBaseUrl {
+public class PetStoreBaseUrl {
     protected RequestSpecification spec;
     @BeforeMethod
     public void setup(){

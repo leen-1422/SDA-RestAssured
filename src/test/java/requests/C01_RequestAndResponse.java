@@ -9,8 +9,6 @@ import io.restassured.response.Response;
 public class C01_RequestAndResponse {
     public static void main(String[] args){
 
-
-
         // https://restful-booker.herokuapp.com/booking
         // User sends a GET Request to the url
         Response response = RestAssured.get("https://restful-booker.herokuapp.com/booking");
